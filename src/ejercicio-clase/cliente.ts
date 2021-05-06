@@ -1,22 +1,22 @@
 import * as net from 'net';
-import {Peticion, Respuesta} from './comando';
 
 if (process.argv.length < 3) {
   console.log('Se debe especificar algun comando');
 } else {
-  const cliente = net.connect({port: 60300});
+  const cliente = net.connect({port: 50000});
 
-  const peticion: Peticion = {
+  const peticion = {
     comando: process.argv[2],
-    argumentos: [],
+    argumentos: [``],
   };
   console.log(`Connection start`);
 
   if (process.argv.length > 3) {
     peticion.argumentos = process.argv.splice(3);
   }
-  cliente.write(JSON.stringify(peticion));
-  cliente.end();
+  cliente.write(JSON.stringify(peticion), () => {
+    cliente.end();
+  });
 
   let data = '';
   cliente.on('data', (dataChunk) => {
@@ -25,8 +25,7 @@ if (process.argv.length < 3) {
 
   cliente.on('end', () => {
     console.log(`Connection finish`);
-    const salida: Respuesta = JSON.parse(data);
-    console.log(salida.mensaje);
+    console.log(data);
   });
 
   cliente.on('error', (err) => {
