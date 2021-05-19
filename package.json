@@ -8,6 +8,8 @@
     "coverage": "nyc npm test && nyc report --reporter=lcov",
     "startAdd": "tsc-watch --onSuccess \"node dist/ej-clase-19-05/addUser.js\"",
     "startSearch": "tsc-watch --onSuccess \"node dist/ej-clase-19-05/searchUser.js\"",
+    "startUpdate": "tsc-watch --onSuccess \"node dist/ej-clase-19-05/updateUser.js\"",
+    "startRemove": "tsc-watch --onSuccess \"node dist/ej-clase-19-05/removeUser.js\"",
     "doc": "typedoc"
   },
   "repository": {
