@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha",
     "coverage": "nyc npm test && nyc report --reporter=lcov",
-    "start": "tsc-watch --onSuccess \"node dist/ej-clase-19-05/hola.js\"",
+    "startAdd": "tsc-watch --onSuccess \"node dist/ej-clase-19-05/addUser.js\"",
+    "startSearch": "tsc-watch --onSuccess \"node dist/ej-clase-19-05/searchUser.js\"",
     "doc": "typedoc"
   },
   "repository": {
