@@ -21,12 +21,12 @@ MongoClient.connect(dbURL, {
     correo: 'alu0101235929@ull.edu.es',
   }, {
     $set: {
-      edad: 21,
+      edad: 20,
       contraseña: '7654321',
     },
   });
 }).then((result) => {
-  console.log(result);
+  console.log(result.modifiedCount);
 }).catch((error) => {
   console.log(error);
 });
